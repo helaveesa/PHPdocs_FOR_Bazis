@@ -1,0 +1,55 @@
+Работа с формами
+
+каждый элемент формы автоматически становится доступным
+программам на PHP
+
+Простейшая форма HTML
+<form action="action.php" method="post">
+ <p>Ваше имя: <input type="text" name="name" /></p>
+ <p>Ваш возраст: <input type="text" name="age" /></p>
+ <p><input type="submit" /></p>
+</form>
+
+Когда пользователь заполнит форму
+и нажмет кнопку отправки,
+будет вызвана страница action.php. В этом файле может быть что-то вроде:
+Здравствуйте, <?php echo htmlspecialchars($_POST['name']); ?>.
+Вам <?php echo (int)$_POST['age']; ?> лет.
+
+
+Пример вывода данной программы:
+Здравствуйте, Сергей.
+Вам 30 лет.
+
+Фильтрация данных
+filter_has_var — Проверяет существование переменной указанного типа
+filter_id — Возвращает идентификатор, принадлежащий именованному фильтру
+filter_input_array — Принимает несколько переменных извне PHP и, при необходимости, фильтрует их
+filter_input — Принимает переменную извне PHP и, при необходимости, фильтрует ее
+filter_list — Возвращает список всех поддерживаемых фильтров
+filter_var_array — Принимает несколько переменных и, при необходимости, фильтрует их
+filter_var — Фильтрует переменную с помощью определенного фильтра
+
+
+<?php
+echo filter_input(INPUT_GET, 'var'); // print 'something'
+echo $_GET['var']; // print 'something'
+$_GET['var'] = 'changed';
+echo filter_input(INPUT_GET, 'var'); // print 'something'
+echo $_GET['var']; // print 'changed'
+?>
+
+$HTTP_POST_VARS и $_POST являются разными переменными и обрабатываются PHP независимо друг от друга
+суперглобальную переменную $_POST
+
+<?php
+var_dump($_POST['person']);
+//will get you something like:
+array (
+0 => array('first_name'=>'john','last_name'=>'smith'),
+1 => array('first_name'=>'jane','last_name'=>'jones'),
+)
+?>
+
+$_GET
+автоматическая глобальная переменная

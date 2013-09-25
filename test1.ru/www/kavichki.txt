@@ -1,0 +1,9 @@
+echj работает только со строками 
+строка - заключаются в "" или ''
+
+$var1 = 'ololo';
+$var2 = 'qwerty $var1 qwerty';
+echo $var2;
+
+$var2 = "qwerty $var1 qwerty";
+echo $var2;

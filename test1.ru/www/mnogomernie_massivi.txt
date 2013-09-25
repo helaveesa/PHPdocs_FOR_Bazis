@@ -1,0 +1,17 @@
+Многомерные массивы в PHP
+
+<?php 
+
+$companies ["Microsoft"][1] = "Programmer"; 
+$companies ["Microsoft"][2] = "PR"; 
+$companies ["Microsoft"][3] = "Office Manager"; 
+
+$companies ["Google"][1] = "IT"; 
+$companies ["Google"][2] = "Web-design"; 
+
+$companies ["Mozilla"][1] = "PR";
+$companies ["Mozilla"][2] = "C++ Programmer";
+
+print_r($companies);
+
+?>
